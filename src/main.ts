@@ -16,11 +16,10 @@ const apiRouter = trpc
     },
   })
   .query('getUser', {
-    input: z.number(),
+    input: z.union([z.number(), z.undefined()]),
     async resolve(req) {
       req.input;
-      console.log(req.input);
-      return getUser(req.input, 'Returned while rendering on server.');
+      return getUser(count, 'Returned while rendering on server.');
     },
   })
   .mutation('createUser', {

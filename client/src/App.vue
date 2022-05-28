@@ -13,8 +13,7 @@ interface Data {
 }
 
 async function getUser() {
-  const index = await client.query('index');
-  user.value = await client.query('getUser', +index);
+  user.value = await client.query('getUser');
 }
 
 onMounted(async () => {
